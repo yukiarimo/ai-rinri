@@ -1,0 +1,2 @@
+# ai-rinri
+AI course
