@@ -1,0 +1,22 @@
+* {
+    font-family: "kawai-font" !important;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+}
+
+@media (max-width: 991.98px) {
+    /* Adjust the max-width to target mobile devices */
+    #sidebarMenu {
+        position: sticky !important;
+        /* Override position-fixed on mobile */
+        top: 0;
+        /* Align to the top */
+        height: auto !important;
+        /* Allow the height to be determined by content */
+        overflow-y: auto;
+        /* Enable scrolling within the sidebar if content overflows */
+    }
+}
