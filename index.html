@@ -5,20 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Yuki Arimo</title>
-  <link rel="canonical" href="https://www.yukiarimo.com/">
-  <meta property="og:url" content="https://www.yukiarimo.com/">
-  <meta property="og:image" content="https://www.yukiarimo.com/assets/img/yukiarimo.png">
+  <link rel="canonical" href="http://course.yukiarimo.com/">
+  <meta property="og:url" content="http://course.yukiarimo.com/">
+  <meta property="og:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta name="description" content="Personal Portfolio">
+  <meta name="description" content="AI Rinri Course">
   <meta property="og:title" content="Yuki Arimo">
-  <meta name="twitter:image" content="https://www.yukiarimo.com/assets/img/yukiarimo.png">
+  <meta name="twitter:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "name": "Yuki Arimo",
-      "url": "https://www.yukiarimo.com"
+      "name": "AI Rinri Course",
+      "url": "http://course.yukiarimo.com"
     }
   </script>
   <script>
@@ -102,8 +102,8 @@
       });
     })();
   </script>
-  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/yukiarimo.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/yukiarimo.png"
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/ai-rinri.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/ai-rinri.png"
     media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="manifest" href="manifest.json">
@@ -137,10 +137,13 @@
       <!-- Sidebar -->
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse position-fixed vh-100 pt-3">
         <div class="px-3 my-3 position-relative">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
           <small class="position-absolute top-50 end-0 translate-middle-y text-muted pe-2">
             ⇧ + S
           </small>
+          <div class="card" id="searchResults">
+
+          </div>
         </div>
 
         <hr>
@@ -161,7 +164,7 @@
             </a>
           </li>
           <li>
-            <a href="https://www.yukiarimo.com/" class="nav-link text-white">
+            <a href="http://course.yukiarimo.com/" class="nav-link text-white">
               Author
             </a>
           </li>
@@ -176,23 +179,32 @@
             <div class="row flex-nowrap overflow-auto">
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
-                    <h5 class="card-title">What is an AI?</h5>
-                    <p class="card-text">About NN</p>
+                    <h5 class="card-title">AI Rinri Course | Introduction</h5>
+                    <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
+                      of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
+                      throughout the course. This comprehensive course will cover neural networks, decision trees,
+                      reinforcement learning, deep learning foundations, and much more!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
                     <h5 class="card-title">NN vs AI</h5>
-                    <p class="card-text">Difference</p>
+                    <p class="card-text courseDescription">Coming soon!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="embed">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
@@ -205,12 +217,15 @@
             <div class="row flex-nowrap overflow-auto">
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
-                    <h5 class="card-title">Coming soon</h5>
-                    <p class="card-text">Coming soon</p>
+                    <h5 class="card-title">ChatGPT</h5>
+                    <p class="card-text courseDescription">Coming soon!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="embed">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
@@ -225,12 +240,16 @@
             <div class="row flex-nowrap overflow-auto">
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*mJZzZ4jgDA50HI71YAgD_A.jpeg"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
-                    <h5 class="card-title">Show Title</h5>
-                    <p class="card-text">Genre (Year)</p>
+                    <h5 class="card-title">JavaScript Introduction</h5>
+                    <p class="card-text courseDescription">The reasons behind the immense popularity of JavaScript as a
+                      programming language, and delve into the fundamentals of coding with JavaScript!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="https://www.youtube.com/embed/e7UXrTRmnBg?si=lukxZSYRUhtNq2VS">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
@@ -243,12 +262,16 @@
             <div class="row flex-nowrap overflow-auto">
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*05ypAE9VxqxDN1LVixQZjg.jpeg"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
-                    <h5 class="card-title">Show Title</h5>
-                    <p class="card-text">Genre (Year)</p>
+                    <h5 class="card-title">The mystery of AI consciousness</h5>
+                    <p class="card-text courseDescription">All the secrets of the mysterious world of AI. Dive into the
+                      most profound spaces of the mysteries beyond understanding!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="https://www.youtube.com/embed/v5HgJUVRiaA?si=5krdMeth_FYw5I-m">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
@@ -263,12 +286,18 @@
             <div class="row flex-nowrap overflow-auto">
               <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                 <div class="card h-100">
-                  <img
-                    src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
                     class="card-img-top" alt="Show Thumbnail">
                   <div class="card-body">
-                    <h5 class="card-title">Show Title</h5>
-                    <p class="card-text">Genre (Year)</p>
+                    <h5 class="card-title">AI Rinri Course | Introduction</h5>
+                    <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
+                      of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
+                      throughout the course. This comprehensive course will cover neural networks, decision trees,
+                      reinforcement learning, deep learning foundations, and much more!</p>
+                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                    <button class="btn btn-primary video-popup-button"
+                      data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
+                      Video</button>
                   </div>
                 </div>
               </div>
@@ -276,6 +305,22 @@
           </div>
         </div>
       </main>
+    </div>
+  </div>
+
+  <div class="modal fade" id="videoPopup" tabindex="-1" data-bs-theme="dark" aria-labelledby="videoPopup"
+    aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: #333; color: #fff;">
+        <div class="modal-header">
+          <h5 class="modal-title">Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">Body</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
