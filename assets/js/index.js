@@ -1,13 +1,3 @@
-function tabRelated() {
-    OpenTab('related');
-
-    var navLinks = document.getElementsByClassName('nav-link');
-    for (var i = 0; i < navLinks.length; i++) {
-        navLinks[i].classList.remove('active');
-    }
-    navLinks[1].classList.add('active');
-}
-
 function tabHome() {
     OpenTab('home');
 
@@ -15,7 +5,44 @@ function tabHome() {
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.remove('active');
     }
+    navLinks[0+6].classList.add('active');
     navLinks[0].classList.add('active');
+}
+
+function tabAiRinri() {
+    OpenTab('aiRinri');
+
+    var navLinks = document.getElementsByClassName('nav-link');
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].classList.remove('active');
+    }
+
+    navLinks[1+6].classList.add('active');
+    navLinks[1].classList.add('active');
+}
+
+function tabCodeRinri() {
+    OpenTab('codeRinri');
+
+    var navLinks = document.getElementsByClassName('nav-link');
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].classList.remove('active');
+    }
+
+    navLinks[2+6].classList.add('active');
+    navLinks[2].classList.add('active');
+}
+
+function tabLifeRinri() {
+    OpenTab('lifeRinri');
+
+    var navLinks = document.getElementsByClassName('nav-link');
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].classList.remove('active');
+    }
+
+    navLinks[3+6].classList.add('active');
+    navLinks[3].classList.add('active');
 }
 
 function tabAbout() {
@@ -25,7 +52,8 @@ function tabAbout() {
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.remove('active');
     }
-    navLinks[2].classList.add('active');
+    navLinks[4+6].classList.add('active');
+    navLinks[4].classList.add('active');
 }
 
 document.querySelectorAll('.video-popup-button').forEach(button => {

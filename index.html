@@ -1,333 +1,367 @@
 <!DOCTYPE html>
 <html data-bs-theme="auto" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Yuki Arimo</title>
+        <link rel="canonical" href="http://course.yukiarimo.com/">
+        <meta property="og:url" content="http://course.yukiarimo.com/">
+        <meta property="og:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:type" content="website">
+        <meta name="description" content="AI Rinri Course">
+        <meta property="og:title" content="Yuki Arimo">
+        <meta name="twitter:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
+        <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "WebSite",
+              "name": "AI Rinri Course",
+              "url": "http://course.yukiarimo.com"
+            }
+        </script>
+        <script>
+            (function () {
+            
+              // JavaScript snippet handling Dark/Light mode switching
+            
+              const getStoredTheme = () => localStorage.getItem('theme');
+              const setStoredTheme = theme => localStorage.setItem('theme', theme);
+              const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+            
+              const getPreferredTheme = () => {
+            
+                if (forcedTheme) return forcedTheme;
+            
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                  return storedTheme;
+                }
+            
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+            
+                if (pageTheme) {
+                  return pageTheme;
+                }
+            
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              }
+            
+              const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                  document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                  document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+              }
+            
+              setTheme(getPreferredTheme());
+            
+              const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+            
+                if (!themeSwitchers.length) return;
+            
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                  element.classList.remove('active');
+                  element.setAttribute('aria-pressed', 'false');
+                });
+            
+                for (const themeSwitcher of themeSwitchers) {
+            
+                  const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+            
+                  if (btnToActivate) {
+                    btnToActivate.classList.add('active');
+                    btnToActivate.setAttribute('aria-pressed', 'true');
+                  }
+                }
+              }
+            
+              window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                  setTheme(getPreferredTheme());
+                }
+              });
+            
+              window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+            
+                document.querySelectorAll('[data-bs-theme-value]')
+                  .forEach(toggle => {
+                    toggle.addEventListener('click', (e) => {
+                      e.preventDefault();
+                      const theme = toggle.getAttribute('data-bs-theme-value');
+                      setStoredTheme(theme);
+                      setTheme(theme);
+                      showActiveTheme(theme);
+                    })
+                  })
+              });
+            })();
+        </script>
+        <link rel="icon" type="image/png" sizes="256x256" href="assets/img/ai-rinri.png">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="manifest" href="manifest.json">
+        <link rel="stylesheet" href="assets/css/aos.min.css">
+        <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="assets/css/kawai-v11-2.css">
+        <script src="assets/js/kawai-v11-2.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="assets/js/index.js" defer></script>
+    </head>
+    <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72" data-new-gr-c-s-check-loaded="9.71.0" data-gr-ext-installed="">
+      <nav class="navbar navbar-expand-lg fixed-top bg-secondary topbar-o text-uppercase navbar-shrink">
+        <div class="container">
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav nav-pills ms-auto d-sm-none">
+                  <div class="px-3 my-3 position-relative">
+                    <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                    <small class="position-absolute top-50 end-0 translate-middle-y text-muted pe-2">
+                    ⇧ + S
+                    </small>
+                    <div class="card" id="searchResults">
+                    </div>
+                </div>
+                <hr>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link active py-3 px-0 px-lg-3 rounded" href="#home" onclick="tabHome();">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aiRinri" onclick="tabAiRinri();">AI Rinri</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#codeRinri" onclick="tabCodeRinri();">Code Rinri</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#lifeRinri" onclick="tabLifeRinri();">Life Rinri</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" onclick="tabAbout();">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://course.yukiarimo.com/">Author</a></li>
+                </ul>
+            </div>
+            <a class="navbar-brand" href="#page-top">Rinri Courses</a>
+        </div>
+    </nav>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Yuki Arimo</title>
-  <link rel="canonical" href="http://course.yukiarimo.com/">
-  <meta property="og:url" content="http://course.yukiarimo.com/">
-  <meta property="og:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:type" content="website">
-  <meta name="description" content="AI Rinri Course">
-  <meta property="og:title" content="Yuki Arimo">
-  <meta name="twitter:image" content="http://course.yukiarimo.com/assets/img/ai-rinri.png">
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": "AI Rinri Course",
-      "url": "http://course.yukiarimo.com"
-    }
-  </script>
-  <script>
-    (function () {
-
-      // JavaScript snippet handling Dark/Light mode switching
-
-      const getStoredTheme = () => localStorage.getItem('theme');
-      const setStoredTheme = theme => localStorage.setItem('theme', theme);
-      const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
-
-      const getPreferredTheme = () => {
-
-        if (forcedTheme) return forcedTheme;
-
-        const storedTheme = getStoredTheme();
-        if (storedTheme) {
-          return storedTheme;
-        }
-
-        const pageTheme = document.documentElement.getAttribute('data-bs-theme');
-
-        if (pageTheme) {
-          return pageTheme;
-        }
-
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-
-      const setTheme = theme => {
-        if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.setAttribute('data-bs-theme', 'dark');
-        } else {
-          document.documentElement.setAttribute('data-bs-theme', theme);
-        }
-      }
-
-      setTheme(getPreferredTheme());
-
-      const showActiveTheme = (theme, focus = false) => {
-        const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
-
-        if (!themeSwitchers.length) return;
-
-        document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-          element.classList.remove('active');
-          element.setAttribute('aria-pressed', 'false');
-        });
-
-        for (const themeSwitcher of themeSwitchers) {
-
-          const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
-
-          if (btnToActivate) {
-            btnToActivate.classList.add('active');
-            btnToActivate.setAttribute('aria-pressed', 'true');
-          }
-        }
-      }
-
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-        const storedTheme = getStoredTheme();
-        if (storedTheme !== 'light' && storedTheme !== 'dark') {
-          setTheme(getPreferredTheme());
-        }
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        showActiveTheme(getPreferredTheme());
-
-        document.querySelectorAll('[data-bs-theme-value]')
-          .forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-              e.preventDefault();
-              const theme = toggle.getAttribute('data-bs-theme-value');
-              setStoredTheme(theme);
-              setTheme(theme);
-              showActiveTheme(theme);
-            })
-          })
-      });
-    })();
-  </script>
-  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/ai-rinri.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/ai-rinri.png"
-    media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="assets/css/aos.min.css">
-  <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
-  <link rel="stylesheet" href="assets/css/index.css">
-  <link rel="stylesheet" href="assets/css/kawai-v11-2.css">
-  <script src="assets/js/kawai-v11-2.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="assets/js/index.js" defer></script>
-</head>
-
-<body data-new-gr-c-s-check-loaded="9.71.0" data-gr-ext-installed="">
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow justify-content-center">
-    <a class="navbar-brand" href="#">
-      <span class="fs-4">AI Rinri Course</span>
-    </a>
-  </header>
-
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Hamburger menu for mobile view -->
-      <nav class="navbar navbar-dark bg-dark fixed-top d-md-none">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
-          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">AI Rinri</a>
-      </nav>
-
-      <!-- Sidebar -->
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse position-fixed vh-100 pt-3">
-        <div class="px-3 my-3 position-relative">
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-o sidebar collapse position-fixed vh-100 pt-3">
+      <div class="px-3 my-3 position-relative">
           <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
           <small class="position-absolute top-50 end-0 translate-middle-y text-muted pe-2">
-            ⇧ + S
+          ⇧ + S
           </small>
           <div class="card" id="searchResults">
-
           </div>
-        </div>
-
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a onclick="tabHome();" class="nav-link active" aria-current="page">
-              Home
-            </a>
-          </li>
-          <li>
-            <a onclick="tabRelated();" class="nav-link text-white">
-              Related
-            </a>
-          </li>
-          <li>
-            <a onclick="tabAbout();" class="nav-link text-white">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="http://course.yukiarimo.com/" class="nav-link text-white">
-              Author
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="tab-o tab-o-default" id="home">
-          <div class="p-3">
-            <h2 class="section-title text-white">Introduction</h2>
-            <hr class="section-divider text-white">
-            <div class="row flex-nowrap overflow-auto">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">AI Rinri Course | Introduction</h5>
-                    <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
-                      of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
-                      throughout the course. This comprehensive course will cover neural networks, decision trees,
-                      reinforcement learning, deep learning foundations, and much more!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">NN vs AI</h5>
-                    <p class="card-text courseDescription">Coming soon!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="embed">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-3">
-            <h2 class="section-title text-white">Prompt Engineering</h2>
-            <hr class="section-divider text-white">
-            <div class="row flex-nowrap overflow-auto">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">ChatGPT</h5>
-                    <p class="card-text courseDescription">Coming soon!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="embed">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-o" id="related">
-          <div class="p-3">
-            <h2 class="section-title text-white">Programming dive</h2>
-            <hr class="section-divider text-white">
-            <div class="row flex-nowrap overflow-auto">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*mJZzZ4jgDA50HI71YAgD_A.jpeg"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">JavaScript Introduction</h5>
-                    <p class="card-text courseDescription">The reasons behind the immense popularity of JavaScript as a
-                      programming language, and delve into the fundamentals of coding with JavaScript!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="https://www.youtube.com/embed/e7UXrTRmnBg?si=lukxZSYRUhtNq2VS">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-3">
-            <h2 class="section-title text-white">Other</h2>
-            <hr class="section-divider text-white">
-            <div class="row flex-nowrap overflow-auto">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*05ypAE9VxqxDN1LVixQZjg.jpeg"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">The mystery of AI consciousness</h5>
-                    <p class="card-text courseDescription">All the secrets of the mysterious world of AI. Dive into the
-                      most profound spaces of the mysteries beyond understanding!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="https://www.youtube.com/embed/v5HgJUVRiaA?si=5krdMeth_FYw5I-m">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-o" id="about">
-          <div class="p-3">
-            <h2 class="section-title text-white">About</h2>
-            <hr class="section-divider text-white">
-            <div class="row flex-nowrap overflow-auto">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="card h-100">
-                  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
-                    class="card-img-top" alt="Show Thumbnail">
-                  <div class="card-body">
-                    <h5 class="card-title">AI Rinri Course | Introduction</h5>
-                    <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
-                      of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
-                      throughout the course. This comprehensive course will cover neural networks, decision trees,
-                      reinforcement learning, deep learning foundations, and much more!</p>
-                    <button onclick="toggleText(event)" id="toggleButton">Show more</button>
-                    <button class="btn btn-primary video-popup-button"
-                      data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
-                      Video</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <div class="modal fade" id="videoPopup" tabindex="-1" data-bs-theme="dark" aria-labelledby="videoPopup"
-    aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="background-color: #333; color: #fff;">
-        <div class="modal-header">
-          <h5 class="modal-title">Title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">Body</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
       </div>
-    </div>
-  </div>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+              <a onclick="tabHome();" class="nav-link active" aria-current="page">
+              Home
+              </a>
+          </li>
+          <li>
+              <a onclick="tabAiRinri();" class="nav-link text-white">
+                AI Rinri
+              </a>
+          </li>
+          <li>
+              <a onclick="tabCodeRinri();" class="nav-link text-white">
+                Code Rinri
+              </a>
+          </li>
+          <li>
+              <a onclick="tabLifeRinri();" class="nav-link text-white">
+                Life Rinri
+              </a>
+          </li>
+          <li>
+              <a onclick="tabAbout();" class="nav-link text-white">
+                About
+              </a>
+          </li>
+          <li>
+              <a href="http://course.yukiarimo.com/" class="nav-link text-white">
+              Author
+              </a>
+          </li>
+      </ul>
+  </nav>
 
-  <script src="assets/bootstrap/js/bootstrap.min.js?h=e55bde7d6e36ebf17ba0b8c1e80e4065"></script>
-  <script src="assets/js/aos.min.js?h=d3718e34eeb0355be8e3179a2e2bccb7"></script>
-  <script src="assets/js/bs-init.js?h=d0c6de1d0ecd5065d55e7b94664b5b10"></script>
-  <script src="assets/js/freelancer.js?h=3feb602c24e264789bbbabe49aeb2cb8"></script>
-</body>
+        <div class="row block-o">
+            <main>
 
+              <div class="tab-o tab-o-default" id="home">
+                <div class="p-3">
+                  <h2 class="section-title text-white">Welcome to Rinri Courses</h2>
+                  <hr class="section-divider text-white">
+                  </div>
+                </div>
+
+              <div class="tab-o" id="aiRinri">
+                <div class="p-3">
+                  <h2 class="section-title text-white">Introduction</h2>
+                  <hr class="section-divider text-white">
+                  <div class="row flex-nowrap overflow-auto">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">AI Rinri Course | Introduction</h5>
+                          <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
+                            of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
+                            throughout the course. This comprehensive course will cover neural networks, decision trees,
+                            reinforcement learning, deep learning foundations, and much more!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">NN vs AI</h5>
+                          <p class="card-text courseDescription">Coming soon!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="embed">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="p-3">
+                  <h2 class="section-title text-white">Prompt Engineering</h2>
+                  <hr class="section-divider text-white">
+                  <div class="row flex-nowrap overflow-auto">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExNDItMDE2YS1reW82cXVxZi5qcGc.jpg"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">ChatGPT</h5>
+                          <p class="card-text courseDescription">Coming soon!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="embed">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3">
+                  <h2 class="section-title text-white">Related</h2>
+                  <hr class="section-divider text-white">
+                  <div class="row flex-nowrap overflow-auto">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*05ypAE9VxqxDN1LVixQZjg.jpeg"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">The mystery of AI consciousness</h5>
+                          <p class="card-text courseDescription">All the secrets of the mysterious world of AI. Dive into the
+                            most profound spaces of the mysteries beyond understanding!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="https://www.youtube.com/embed/v5HgJUVRiaA?si=5krdMeth_FYw5I-m">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="tab-o" id="codeRinri">
+                <div class="p-3">
+                  <h2 class="section-title text-white">Programming dive</h2>
+                  <hr class="section-divider text-white">
+                  <div class="row flex-nowrap overflow-auto">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*mJZzZ4jgDA50HI71YAgD_A.jpeg"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">JavaScript Introduction</h5>
+                          <p class="card-text courseDescription">The reasons behind the immense popularity of JavaScript as a
+                            programming language, and delve into the fundamentals of coding with JavaScript!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="https://www.youtube.com/embed/e7UXrTRmnBg?si=lukxZSYRUhtNq2VS">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-o" id="lifeRinri">
+                <div class="p-3">
+                  <h2 class="section-title text-white">Life Rinri</h2>
+                  <hr class="section-divider text-white">
+                </div>
+              </div>
+      
+              <div class="tab-o" id="about">
+                <div class="p-3">
+                  <h2 class="section-title text-white">About</h2>
+                  <hr class="section-divider text-white">
+                  <div class="row flex-nowrap overflow-auto">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                      <div class="card h-100">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GWwYMW_1QAACmvmt_uUuCA.png"
+                          class="card-img-top" alt="Show Thumbnail">
+                        <div class="card-body">
+                          <h5 class="card-title">AI Rinri Course | Introduction</h5>
+                          <p class="card-text courseDescription">About AI Rinri course and an in-depth look at various aspects
+                            of AI and Machine Learning. Exploration of both theoretical concepts and practical applications
+                            throughout the course. This comprehensive course will cover neural networks, decision trees,
+                            reinforcement learning, deep learning foundations, and much more!</p>
+                          <button onclick="toggleText(event)" id="toggleButton">Show more</button>
+                          <button class="btn btn-primary video-popup-button"
+                            data-youtube-link="https://www.youtube.com/embed/Eyvy_EJBAx0?si=Fhst3o1tBFno4g8-">Watch
+                            Video</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+            <div class="text-center text-white copyright py-4">
+              <div class="row" style="display: flex; flex-direction: row;">
+                <div class="container mb-3"><small>Copyright ©&nbsp;Yuki Arimo 2023</small></div>
+            
+                <div class="col-md-4 mb-5 mb-lg-0">
+                  <select class="form-select" onchange="location = this.value;">
+                    <option selected>Find me...</option>
+                    <option value="support-link">Support</option>
+                    <option value="github-link">GitHub</option>
+                    <option value="twitter-link">Twitter</option>
+                    <option value="reddit-link">Reddit</option>
+                    <option value="deviantart-link">DeviantArt</option>
+                    <option value="flickr-link">Flickr</option>
+                    <option value="youtube-link">YouTube</option>
+                    <option value="powerpoint-link">PowerPoint</option>
+                    <option value="telegram-link">Telegram</option>
+                    <option value="discover-link">Discover</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="text-center d-block rounded text-white" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+        </div>
+        <script src="assets/bootstrap/js/bootstrap.min.js?h=e55bde7d6e36ebf17ba0b8c1e80e4065"></script>
+        <script src="assets/js/aos.min.js?h=d3718e34eeb0355be8e3179a2e2bccb7"></script>
+        <script src="assets/js/bs-init.js?h=d0c6de1d0ecd5065d55e7b94664b5b10"></script>
+        <script src="assets/js/freelancer.js?h=3feb602c24e264789bbbabe49aeb2cb8"></script>
+    </body>
 </html>
