@@ -1,3 +1,7 @@
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time))
+}
+
 function tabHome() {
     OpenTab('home');
 
@@ -5,7 +9,7 @@ function tabHome() {
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.remove('active');
     }
-    navLinks[0+6].classList.add('active');
+    navLinks[0 + 6].classList.add('active');
     navLinks[0].classList.add('active');
 }
 
@@ -17,7 +21,7 @@ function tabAiRinri() {
         navLinks[i].classList.remove('active');
     }
 
-    navLinks[1+6].classList.add('active');
+    navLinks[1 + 6].classList.add('active');
     navLinks[1].classList.add('active');
 }
 
@@ -29,7 +33,7 @@ function tabCodeRinri() {
         navLinks[i].classList.remove('active');
     }
 
-    navLinks[2+6].classList.add('active');
+    navLinks[2 + 6].classList.add('active');
     navLinks[2].classList.add('active');
 }
 
@@ -41,7 +45,7 @@ function tabLifeRinri() {
         navLinks[i].classList.remove('active');
     }
 
-    navLinks[3+6].classList.add('active');
+    navLinks[3 + 6].classList.add('active');
     navLinks[3].classList.add('active');
 }
 
@@ -52,27 +56,54 @@ function tabAbout() {
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.remove('active');
     }
-    navLinks[4+6].classList.add('active');
+    navLinks[4 + 6].classList.add('active');
     navLinks[4].classList.add('active');
 }
 
 document.querySelectorAll('.video-popup-button').forEach(button => {
     button.addEventListener('click', function () {
-        const youtubeLink = this.getAttribute('data-youtube-link');
-        const modalTitle = this.closest('.card-body').querySelector('.card-title').textContent;
-        const modalText = this.closest('.card-body').querySelector('.card-text').textContent;
+        const expandBtn = this.closest('.courseCard').querySelector('#toggleButton');
 
-        // Update the modal title and body
-        document.querySelector('#videoPopup .modal-title').textContent = modalTitle;
-        document.querySelector('#videoPopup .modal-body').innerHTML = `
+        var forceExpand = false
+
+        var event = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true
+        })
+
+        if (expandBtn.textContent == 'Show more') {
+            console.log(true)
+            expandBtn.dispatchEvent(event)
+            forceExpand = true
+        }
+
+        const youtubeLink = this.getAttribute('data-youtube-link');
+        const modalTitle = this.closest('.courseCard').querySelector('.card-title').textContent;
+        const modalText = this.closest('.courseCard').querySelector('.card-text').textContent;
+
+        async function dispW() {
+            await delay(1)
+
+            // Update the modal title and body
+            document.querySelector('#videoPopup .modal-title').textContent = modalTitle;
+            document.querySelector('#videoPopup .modal-body').innerHTML = `
         <p class="fs-4 fw-bold text-primary">${modalText}</p>
         <div class="embed-responsive embed-responsive-16by9">
           <iframe src="${youtubeLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       `;
 
-        // Show the modal
-        new bootstrap.Modal(document.getElementById('videoPopup')).show();
+            // Show the modal
+            new bootstrap.Modal(document.getElementById('videoPopup')).show();
+
+            if (forceExpand) {
+                expandBtn.dispatchEvent(event)
+            }
+        }
+
+        dispW()
+
     });
 });
 
@@ -104,13 +135,35 @@ function toggleText(event) {
     isTruncated[index] = !isTruncated[index];
 }
 
+function mobileNavTab() {
+    async function pressNav() {
+        await delay(10)
+
+        const expandBtn = document.getElementById('mobileNavTabBtn')
+
+        var event = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true
+        })
+
+        expandBtn.dispatchEvent(event)
+    }
+
+    pressNav()
+}
+
+Array.from(document.getElementsByClassName('mobileNavTab')).forEach((button) => {
+    button.addEventListener('click', mobileNavTab);
+});
+
 Array.from(document.getElementsByClassName('toggleButton')).forEach((button) => {
     button.addEventListener('click', toggleText);
 });
 
 function searchCards() {
     const searchInput = document.querySelector('#searchInput'); // Assuming you have an input field with id="searchInput"
-    const cards = document.querySelectorAll('.card-body');
+    const cards = document.querySelectorAll('.courseCard');
     const searchResultsContainer = document.querySelector('#searchResults'); // Assuming you have a container to display search results with id="searchResults"
 
     searchInput.addEventListener('keyup', function (event) {
